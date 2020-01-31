@@ -4,7 +4,7 @@
 
     <div class="row">
         <div class="col-sm-4">
-            <img src="{{$pelicula['poster']}}" style="height:500px"/>
+            <img class="img-fluid" src="{{$pelicula['poster']}}" style="height:500px"/>
         </div>
         <div class="col-sm-8">
             <h2> {{$pelicula['title']}} </h2>
@@ -21,11 +21,11 @@
             @endif
 
             <a style="color: white" class="btn btn-warning" href="{{url('/catalog/edit', array("id"=>$id))}}">
-                <i class="fa fa-bed" aria-hidden="true" style="color: white"></i>
+                <i class="fas fa-pencil-alt" aria-hidden="true" style="color: white"></i>
                 Editar película
             </a>
             <a class="btn btn-light" href="{{url('/catalog')}}">
-                <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                <i class="fas fa-chevron-left" aria-hidden="true"></i>
                 Volver al listado
             </a>
 
