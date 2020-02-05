@@ -14,7 +14,7 @@
           integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
 
-    <title>Hello, world!</title>
+    <title>VideoClub</title>
 </head>
 <body>
 @include('partials.navbar')
