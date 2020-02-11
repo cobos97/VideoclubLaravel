@@ -13,7 +13,7 @@
 
 Route::get('/', 'HomeController@getHome');
 
-
+/*
 Route::get('login', function () {
     return view('auth.login');
 });
@@ -21,15 +21,23 @@ Route::get('login', function () {
 Route::get('logout', function () {
     echo "Logout usuario";
 });
+*/
 
-Route::get('catalog', 'CatalogController@getIndex');
-
-
-Route::get('catalog/show/{id}', 'CatalogController@getShow');
+Route::get('catalog', 'CatalogController@getIndex')->middleware('auth');
 
 
-Route::get('catalog/create', 'CatalogController@getCreate');
+Route::get('catalog/show/{id}', 'CatalogController@getShow')->middleware('auth');
 
 
-Route::get('catalog/edit/{id}', 'CatalogController@getEdit');
+Route::get('catalog/create', 'CatalogController@getCreate')->middleware('auth');
 
+
+Route::get('catalog/edit/{id}', 'CatalogController@getEdit')->middleware('auth');
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
+
+Route::post('catalog/create', 'CatalogController@postCreate')->name('postCreate')->middleware('auth');
+Route::put('catalog/edit/{id}', 'CatalogController@putEdit')->name('putEdit')->middleware('auth');

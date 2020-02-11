@@ -2,7 +2,8 @@
 
 @section('content')
     <h2>Añadir película</h2>
-    <form>
+    <form method="post" action="{{ route('postCreate') }}">
+        @csrf
         <div class="form-group">
             <label for="title">Titulo</label>
             <input type="text" class="form-control" id="title" name="title">

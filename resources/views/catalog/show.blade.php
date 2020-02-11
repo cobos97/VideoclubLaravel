@@ -20,7 +20,7 @@
                 <a style="color: white" class="btn btn-danger">Alquilar película</a>
             @endif
 
-            <a style="color: white" class="btn btn-warning" href="{{url('/catalog/edit', array("id"=>$pelicula->id))}}">
+            <a style="color: white" class="btn btn-warning" href="{{url('/catalog/edit/'.$pelicula->id)}}">
                 <i class="fas fa-spin fa-pencil-alt" aria-hidden="true" style="color: white"></i>
                 Editar película
             </a>

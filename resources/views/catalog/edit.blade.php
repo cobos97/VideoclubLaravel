@@ -2,7 +2,8 @@
 
 @section('content')
     <h2>Modificar película</h2>
-    <form>
+    <form method="post" action="">
+        @csrf
         {{method_field('PUT')}}
         <div class="form-group">
             <label for="title">Titulo</label>
