@@ -41,3 +41,7 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 
 Route::post('catalog/create', 'CatalogController@postCreate')->name('postCreate')->middleware('auth');
 Route::put('catalog/edit/{id}', 'CatalogController@putEdit')->name('putEdit')->middleware('auth');
+
+Route::put('catalog/rent/{id}', 'CatalogController@putRent')->name('putRent')->middleware('auth');
+Route::put('catalog/return/{id}', 'CatalogController@putReturn')->name('putReturn')->middleware('auth');
+Route::delete('catalog/delete/{id}', 'CatalogController@deleteMovie')->name('deleteMovie')->middleware('auth');

@@ -50,6 +50,9 @@ class CatalogController extends Controller
         $movie->poster = $request->input('poster');
         $movie->synopsis = $request->input('synopsis');
         $movie->save();
+
+        flash('La película se ha guardado correctamente')->success();
+
         return redirect('/catalog');
     }
 
@@ -61,7 +64,39 @@ class CatalogController extends Controller
         $movie->poster = $request->input('poster');
         $movie->synopsis = $request->input('synopsis');
         $movie->save();
+
+        flash('La película se ha modificado correctamente')->success();
+
         return redirect('/catalog/show/'.$id);
+    }
+
+    public function putRent($id){
+        $movie = Movie::findOrFail($id);
+        $movie->rented = true;
+        $movie->save();
+
+        flash('La película se ha alquilado correctamente')->success();
+
+        return redirect('/catalog/show/'.$id);
+    }
+
+    public function putReturn($id){
+        $movie = Movie::findOrFail($id);
+        $movie->rented = false;
+        $movie->save();
+
+        flash('La película se ha devuelto correctamente')->success();
+
+        return redirect('/catalog/show/'.$id);
+    }
+
+    public function deleteMovie($id){
+        $movie = Movie::findOrFail($id);
+        $movie->delete();
+
+        flash('La película se ha borrado correctamente')->success();
+
+        return redirect('/catalog');
     }
 
 }
